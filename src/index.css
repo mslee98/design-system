@@ -1,3 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  /* tailwind4 버전부턴 tailwind.config.js가 없고 @theme 태그를 통해서 커스텀 색을 지정할 수 있음
+     --color-mint-500: oklch(0.72 0.11 178); -> var(--color-mint-500) 이렇게 변환하는 작업을 함
+
+      테마 변수 네임스페이스 https://tailwindcss.com/docs/theme 참고
+
+      이러한 네임스페이스에 새로운 테마 변수를 정의하면 프로젝트에서 해당 유틸리티 및 변형을 사용할 수 있게 됩니다.
+
+      네임스페이스	유틸리티 클래스
+      --color-*	색상 관련 유틸리티(예: bg-red-500, text-sky-300, 등)
+      --font-*	글꼴 패밀리 유틸리티(예:font-sans
+      --text-*	글꼴 크기 조절 유틸리티(예: ...)text-xl
+      --font-weight-*	글꼴 두께 조절 유틸리티font-bold
+      --tracking-*	글자 간격 조정 유틸리티(예: ...)tracking-wide
+      --leading-*	선 높이 유틸리티(예:leading-tight
+      --breakpoint-*	반응형 브레이크포인트 변형(예: ...)sm:*
+      --container-*	컨테이너 쿼리 변형 @sm:*및 크기 유틸리티 등max-w-md
+      --spacing-*	간격 및 크기 조정 유틸리티(예: px-4, max-h-16, 등)
+      --radius-*	경계 반경 유틸리티(예: ...)rounded-sm
+      --shadow-*	박스 섀도우 유틸리티(예:shadow-md
+      --inset-shadow-*	삽입 상자 그림자 유틸리티(예: ...)inset-shadow-xs
+      --drop-shadow-*	그림자 필터 유틸리티(예:drop-shadow-md
+      --blur-*	흐림 필터 유틸리티(예: ...)blur-md
+      --perspective-*	관점 유틸리티는 다음과 같습니다.perspective-near
+      --aspect-*	화면 비율 유틸리티(예: ...)aspect-video
+      --ease-*	전환 타이밍 함수 유틸리티(예: ...)ease-out
+      --animate-*	애니메이션 유틸리티(예: ...)animate-spin
+  */
+  --color-primay: oklch(62% 0.21 260);
+
+  --color-avocado-100: oklch(0.99 0 0);
+  --color-avocado-200: oklch(0.98 0.04 113.22);
+  --color-avocado-300: oklch(0.94 0.11 115.03);
+  --color-avocado-400: oklch(0.92 0.19 114.08);
+  --color-avocado-500: oklch(0.84 0.18 117.33);
+  --color-avocado-600: oklch(0.53 0.12 118.34);
+
+
+  --text-xs: 12px;
+  --text-xs--line-height: 18px;
+  --text-xs--letter-spacing: 0px;
+  --text-xs--font-weight: 400;
+
+  --text-sm: 14px;
+  --text-sm--line-height: 21px;
+  --text-sm--letter-spacing: 0px;
+  --text-sm--font-weight: 400;
+
+  --text-base: 16px;
+  --text-base--line-height: 24px;
+  --text-base--letter-spacing: 0px;
+  --text-base--font-weight: 400;
+
+  --text-xl: 20px;
+  --text-xl--line-height: 36px;
+  --text-xl--letter-spacing: 0px;
+  --text-xl--font-weight: 700;
+
+  --text-2xl: 30px;
+  --text-2xl--line-height: 36px;
+  --text-2xl--letter-spacing: 0px;
+  --text-2xl--font-weight: 700;
+
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: calc(2.25 / 1.875);
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: calc(2.5 / 2.25);
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1;
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 1;
+  --text-9xl: 8rem;
+  --text-9xl--line-height: 1;
+}
+
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -11,58 +93,4 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
