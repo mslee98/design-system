@@ -62,7 +62,7 @@ export const Default: Story = {
     id: "",
     errorMessage: "에러메시지를 입력하세요",
     iconAlt: "icon",
-    iconPath: "/icons/ic-delete-dark.svg",
+    iconPath: "/icons/ic-close-dark.svg",
     placeholder: "텍스트를 입력해주세요",
     value: "",
     isError: false,

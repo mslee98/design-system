@@ -30,13 +30,6 @@
       --animate-*	애니메이션 유틸리티(예: ...)animate-spin
   */
 
-  --color-avocado-100: oklch(0.99 0 0);
-  --color-avocado-200: oklch(0.98 0.04 113.22);
-  --color-avocado-300: oklch(0.94 0.11 115.03);
-  --color-avocado-400: oklch(0.92 0.19 114.08);
-  --color-avocado-500: oklch(0.84 0.18 117.33);
-  --color-avocado-600: oklch(0.53 0.12 118.34);
-
   --color-primary: oklch(0.5635 0.2408 260.82);
 
   /* 상태 관련 색상 */
@@ -45,19 +38,21 @@
   --color-negative: oklch(0.6616 0.2249 25.88);
 
 
-
   /* 흐리지만 사용자가 알아야 할 때 */
-  --color-assistive: oklch(0.6177 0.0045 286.27)
+  --color-assistive: oklch(0.6177 0.0045 286.27);
 
   /* alternative 보다 가시성이 필요할 때 */
-  --color-neutral: oklch(0.4022 0.0068 274.82)
-
-
-  /* 부가적인 정보를 표시해야 할 때 */
-  --color-alternative: oklch(0.8323 0.0018 247.84)
+  --color-neutral: oklch(0.4022 0.0068 274.82);
 
   /* 부가적인 정보를 표시해야 할 때 */
-  --color-disable: oklch(0.9039 0.0013 286.37)
+  --color-alternative: oklch(0.8323 0.0018 247.84);
+
+  /* 부가적인 정보를 표시해야 할 때 */
+  --color-disable: oklch(0.9039 0.0013 286.37);
+  --color-social: oklch(0.4735 0.2408 260.82);
+  --color-disable: oklch(0.9581 0 0);
+  --color-text: oklch(0.1569 0.0015 274.82);
+
 
 
   --text-xs: 12px;
@@ -80,7 +75,7 @@
   --text-xl--letter-spacing: 0px;
   --text-xl--font-weight: 700;
 
-  --text-2xl: 30px;
+  --text-2xl: 24px;
   --text-2xl--line-height: 36px;
   --text-2xl--letter-spacing: 0px;
   --text-2xl--font-weight: 700;
@@ -99,6 +94,11 @@
   --text-8xl--line-height: 1;
   --text-9xl: 8rem;
   --text-9xl--line-height: 1;
+
+
+  /* PrimaryButton 전용 border-radius */
+  --radius-primary-button: 5px;
+  --radius-tag-button: 17.5px;
 }
 
 /* .text-primary {
@@ -110,6 +110,15 @@
   .relative >p {
     @apply absolute;
   }
+
+  .navigation-title-wrapper > button {
+    @apply mr-[7px]
+  }
+
+  /* PrimaryButton에만 border-radius 적용 */
+  /* .primary-button {
+    border-radius: var(--radius-primary-button);
+  } */
 }
 
 @layer base {

@@ -1,32 +1,36 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import IconButton from '../components/IconButton';
+import TagButton from '../components/TagButton';
 
 const meta = {
-  title: 'Buttons/IconButton', // 경로
-  component: IconButton, 
+  title: 'Buttons/TagButton', // 경로
+  component: TagButton, 
   parameters: {
     layout: 'centered', // 스토리북 미리보기 화면에서 컴포넌트 배치 || left | center | right
   },
   tags: ['autodocs'],
     argTypes: {
-      alt: {
-        control: "text",
-        description: "이미지의 alt 속성",
-        defaultValue: "icon"
+      isChecked: {
+        control: "boolean",
+        description: "버튼 체크 여부",
+        defaultValue: false,
       },
-      iconPath: {control: "text", description: "Icon의 경로"},
+      children: {
+        control: "text",
+        description: "버튼 text",
+        defaultValue: "Button"
+      },
       onClick: {action: "clicked", desctipion: "버튼 클릭 이벤트"}
   }
-} satisfies Meta<typeof IconButton>;
+} satisfies Meta<typeof TagButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    alt: 'alt 속성 작성',
-    iconPath: '/icons/ic-close-dark.svg',
+    isChecked: true,
+    children: 'Button',
     onClick: () => {}
   },
 };

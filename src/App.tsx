@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import './App.css'
-import DefaultTextFiled from './components/DefaultTextField'
-import Label from './components/Label'
+import TagList from './components/TagList';
+// import DefaultTextFiled from './components/DefaultTextField'
+// import Label from './components/Label'
 
 function App() {
-  const [isError, setIsError] = useState(false);
+  // const [isError, setIsError] = useState(false);
 
   return (
     <>
+      <TagList tagList={['Tag1', 'Tag2', 'Tag3']} onTagClick={(tag) => console.log(tag)} />
     
-    
-      <Label htmlFor='email'>이메일</Label>
+      {/* <Label htmlFor='email'>이메일</Label>
       <DefaultTextFiled
         id='email'
         placeholder='이메일을 입력하세요'
@@ -36,7 +37,7 @@ function App() {
         onChange={() => {}}
         onIconClick={() => {}}
       />
-      <button onClick={() => setIsError((prev) => !prev)}>에러 토글</button>
+      <button onClick={() => setIsError((prev) => !prev)}>에러 토글</button> */}
     
     </>
   )
