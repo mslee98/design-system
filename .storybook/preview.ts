@@ -1,5 +1,9 @@
 import type { Preview } from '@storybook/react-vite'
-import "../src/styles/tailwind.css"; // 없어도 적용하는것같은데?
+// import "../src/styles/tailwind.css"; // 없어도 적용하는것같은데?
+import '../src/index.css'
+import "@fontsource/noto-sans-kr/400.css";
+import "@fontsource/noto-sans-kr/700.css";
+
 
 const preview: Preview = {
   parameters: {

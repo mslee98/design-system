@@ -1,17 +1,16 @@
 import React from 'react';
 
-import './button.css';
+import '../stories/button.css';
 
+/** 
+ * interface로 정의된 타입은 수정할 수 있는 argmunet로 들어간다. 
+ * 하지만 이건 컴포넌트 영역이지 스토리 영역이 아니기 때문에 여기다 작성하는건 비추천이긴 함 
+*/
 export interface ButtonProps {
-  /** Is this the principal call to action on the page? */
   primary?: boolean;
-  /** What background color to use */
   backgroundColor?: string;
-  /** How large should the button be? */
   size?: 'small' | 'medium' | 'large';
-  /** Button contents */
   label: string;
-  /** Optional click handler */
   onClick?: () => void;
 }
 

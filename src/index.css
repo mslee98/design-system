@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 @theme {
   /* tailwind4 버전부턴 tailwind.config.js가 없고 @theme 태그를 통해서 커스텀 색을 지정할 수 있음
      --color-mint-500: oklch(0.72 0.11 178); -> var(--color-mint-500) 이렇게 변환하는 작업을 함
@@ -28,7 +29,6 @@
       --ease-*	전환 타이밍 함수 유틸리티(예: ...)ease-out
       --animate-*	애니메이션 유틸리티(예: ...)animate-spin
   */
-  --color-primay: oklch(62% 0.21 260);
 
   --color-avocado-100: oklch(0.99 0 0);
   --color-avocado-200: oklch(0.98 0.04 113.22);
@@ -36,6 +36,28 @@
   --color-avocado-400: oklch(0.92 0.19 114.08);
   --color-avocado-500: oklch(0.84 0.18 117.33);
   --color-avocado-600: oklch(0.53 0.12 118.34);
+
+  --color-primary: oklch(0.5635 0.2408 260.82);
+
+  /* 상태 관련 색상 */
+  --color-positive: oklch(0.7004 0.2125 146.24);
+  --color-cautionary: oklch(0.7603 0.176393 61.117);
+  --color-negative: oklch(0.6616 0.2249 25.88);
+
+
+
+  /* 흐리지만 사용자가 알아야 할 때 */
+  --color-assistive: oklch(0.6177 0.0045 286.27)
+
+  /* alternative 보다 가시성이 필요할 때 */
+  --color-neutral: oklch(0.4022 0.0068 274.82)
+
+
+  /* 부가적인 정보를 표시해야 할 때 */
+  --color-alternative: oklch(0.8323 0.0018 247.84)
+
+  /* 부가적인 정보를 표시해야 할 때 */
+  --color-disable: oklch(0.9039 0.0013 286.37)
 
 
   --text-xs: 12px;
@@ -79,16 +101,32 @@
   --text-9xl--line-height: 1;
 }
 
+/* .text-primary {
+  color: var(--color-primary);
+} */
+
+
+@layer components {
+  .relative >p {
+    @apply absolute;
+  }
+}
+
+@layer base {
+  html {
+    font-family: "Noto Sans KR", system-ui, sans-serif;
+  }
+}
 
 :root {
   font-family: "Noto Sans KR";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* color-scheme: light dark; */
+  /* color: rgba(255, 255, 255, 0.87); */
+  /* background-color: #242424; */
 
-  font-synthesis: none;
+  /* font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
 }

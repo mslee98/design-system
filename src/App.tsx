@@ -1,33 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from 'react';
 import './App.css'
+import DefaultTextFiled from './components/DefaultTextField'
+import Label from './components/Label'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isError, setIsError] = useState(false);
 
   return (
     <>
-      <div >
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      {/* <h1 className='font-bold text-xs-500'>Vite + React</h1> */}
-      <div className="card">
-        <button className='m-4 p-4 text-xs' onClick={() => setCount((count) => count + 1)}>
-          count is {count} letter spacing
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    
+    
+      <Label htmlFor='email'>이메일</Label>
+      <DefaultTextFiled
+        id='email'
+        placeholder='이메일을 입력하세요'
+        iconPath="/icons/ic-delete-dark.svg"
+        iconAlt='delete'
+        isError={isError}
+        errorMessage='이메일을 입력하세요'
+        onChange={() => {}}
+        onIconClick={() => {}}
+      />
+    
+      <div className='mt-20'/>
+
+    
+      <Label htmlFor='address'>주소</Label>
+      <DefaultTextFiled
+        id='address'
+        placeholder='주소를 입력하세요'
+        iconPath="/icons/ic-delete-dark.svg"
+        iconAlt='delete'
+        isError={isError}
+        errorMessage='주소를 입력하세요'
+        onChange={() => {}}
+        onIconClick={() => {}}
+      />
+      <button onClick={() => setIsError((prev) => !prev)}>에러 토글</button>
+    
     </>
   )
 }

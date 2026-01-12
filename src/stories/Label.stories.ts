@@ -1,0 +1,26 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+
+import Label from '../components/Label';
+
+const meta = {
+  title: 'Example/Label', // 경로
+  component: Label, 
+  parameters: {
+    layout: 'centered', // 스토리북 미리보기 화면에서 컴포넌트 배치 || left | center | right
+  },
+  tags: ['autodocs'],
+    argTypes: {
+      htmlFor: { control: "text", description: "label의 for 속성" },
+      children: {control: "text", description: "label의 내용"}
+  }
+} satisfies Meta<typeof Label>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    htmlFor: 'username',
+    children: '이메일'
+  },
+};
