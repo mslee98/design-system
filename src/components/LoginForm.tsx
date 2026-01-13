@@ -40,7 +40,7 @@ export default function LoginForm() {
                 isError={false}
             />
             <PrimaryButton 
-                theme="dark"
+                theme="social"
                 isDisabled={!email || !password}
                 onClick={() => {}}>로그인</PrimaryButton>
                 

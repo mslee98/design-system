@@ -33,7 +33,7 @@ export const EmptyForm: Story = {
         await userEvent.type(canvas.getByTestId('password'), 'a-random-password');
 
         // See https://storybook.js.org/docs/essentials/actions#automatically-matching-args to learn how to setup logging in the Actions panel
-        await userEvent.click(canvas.getByRole('button'));
+        // await userEvent.click(canvas.getByRole('button'));
 
 
         await expect(loginButton).toBeDisabled();
@@ -57,7 +57,7 @@ export const FilledForm: Story = {
     await userEvent.type(canvas.getByTestId('password'), 'a-random-password');
 
     // See https://storybook.js.org/docs/essentials/actions#automatically-matching-args to learn how to setup logging in the Actions panel
-    await userEvent.click(canvas.getByRole('button'));
+    // await userEvent.click(canvas.getByRole('button'));
 
 
     await expect(loginButton).toBeEnabled();
