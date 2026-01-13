@@ -1,0 +1,50 @@
+name: "UI TEST"
+
+on: push
+
+jobs:
+  # 일반적인 Github_action에서는 workflow_run을 통해 워크플로우 상태가 completed | requested | in_progress 있을 떄
+  # Default Branch에 한해서 dependency를 줄 수 있다.
+
+  #하지만 지금 디자인시스템 경우에서는 main에 머지될 때 뿐만 아니라, feature가 푸쉬될 때도 테스트를 하여만 함 UI 테스트를 위해서
+  # 따라서 아래처럼 주입함
+  accessibility-test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install dependencies
+        run: yarn
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+      - name: Build Storybook
+        run: yarn build-storybook --quiet
+      - name: Serve Storybook and run tests
+        run: |
+          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+            "npx http-server storybook-static --port 6006 --silent" \
+            "npx wait-on tcp:127.0.0.1:6006 && yarn test-storybook"
+
+  chromatic:
+    needs: accessibility-test # test job이후에 크로마틱이 배포될 수 있도록
+    name: Run Chromatic
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.20.0
+      - name: Install dependencies
+        # ⚠️ See your package manager's documentation for the correct command to install dependencies in a CI environment.
+        run: npm ci
+      - name: Run Chromatic
+        uses: chromaui/action@latest
+        with:
+          # ⚠️ Make sure to configure a `CHROMATIC_PROJECT_TOKEN` repository secret
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
