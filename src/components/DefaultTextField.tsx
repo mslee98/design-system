@@ -46,6 +46,7 @@ export default function DefaultTextFiled({
                     ${borderColor}
             `}>
                 <input 
+                    data-testid={id}
                     id={id}
                     type="text" 
                     className="outline-none"
