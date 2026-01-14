@@ -22,7 +22,7 @@ const meta = {
         description: "버튼 타입",
         defaultValue: "dark",
       },
-      isDisabled: {
+      disabled: {
         control: "boolean",
         description: "버튼 비활성화 여부",
         defaultValue: false,
@@ -41,8 +41,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    isDisabled: true,
-    theme: "dark",
+    disabled: true,
+    theme: "social",
     children: 'Button',
     onClick: () => {}
   },

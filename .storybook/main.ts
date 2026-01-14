@@ -7,8 +7,8 @@ const config: StorybookConfig = {
   ],
   "addons": [
     "@chromatic-com/storybook",
-    "@storybook/addon-vitest",
-    "@storybook/addon-a11y",
+    "@storybook/addon-vitest", // 스토리북이 아닌 외부 테스트 도구
+    "@storybook/addon-a11y", // Accessibility(접근성) 을 위한 도구
     "@storybook/addon-docs"
   ],
   "framework": "@storybook/react-vite"

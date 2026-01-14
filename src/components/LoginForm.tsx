@@ -3,11 +3,6 @@ import DefaultTextFiled from "./DefaultTextField";
 import Label from "./Label";
 import PrimaryButton from "./PrimaryButton";
 
-
-// interface ILoginFormProps {
-
-// }
-
 export default function LoginForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -40,9 +35,11 @@ export default function LoginForm() {
                 isError={false}
             />
             <PrimaryButton 
-                theme="social"
-                isDisabled={!email || !password}
-                onClick={() => {}}>로그인</PrimaryButton>
+                theme="dark"
+                disabled={!email || !password}
+                onClick={() => {}
+            }>로그인
+            </PrimaryButton>
                 
         </div>
     )

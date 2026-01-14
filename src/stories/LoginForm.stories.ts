@@ -28,9 +28,9 @@ export const EmptyForm: Story = {
         const loginButton = canvas.getByRole("button", {name: "로그인"});
 
         // 👇 Simulate interactions with the component
-        await userEvent.type(canvas.getByTestId('email'), 'email@provider.com');
+        // await userEvent.type(canvas.getByTestId('email'), 'email@provider.com');
 
-        await userEvent.type(canvas.getByTestId('password'), 'a-random-password');
+        // await userEvent.type(canvas.getByTestId('password'));
 
         // See https://storybook.js.org/docs/essentials/actions#automatically-matching-args to learn how to setup logging in the Actions panel
         // await userEvent.click(canvas.getByRole('button'));
