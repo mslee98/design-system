@@ -4,7 +4,7 @@ interface IPrimaryButtonProps {
     theme: PrimaryButtonTheme;
     onClick: React.MouseEventHandler<HTMLButtonElement>;
     children: string;
-    isDisabled: boolean;
+    disabled: boolean;
 }
 
 
@@ -21,11 +21,20 @@ const color: Record<PrimaryButtonTheme, string> = {
     text,
 }
 
-export default function PrimaryButton({ theme, children, onClick, isDisabled }: IPrimaryButtonProps) {
+export default function PrimaryButton({ theme, children, onClick, disabled }: IPrimaryButtonProps) {
+
+    console.log(disabled)
+
     return (
-        <button className={`w-full h-[59px] ${disabledStyle}${color[theme]} rounded-primary-button`} 
+        <button className={`
+            w-full 
+            h-[59px] 
+            ${disabledStyle}
+            ${color[theme]} 
+            rounded-primary-button
+        `} 
             onClick={onClick} 
-            disabled={isDisabled}
+            disabled={disabled}
         >
             {children}
         </button>
